@@ -8,6 +8,18 @@ const Modal = ({ url }) => {
   const [cursor, setCursor] = useState("");
   const [fullHeight, setFullHeight] = useState("");
 
+  const keyPress = useCallback((e) => {
+    console.log(e.code);
+    socket.emit("keyPressed", {
+      key: e.code,
+    });
+  });
+
+  useEffect(() => {
+    document.addEventListener("keypress", keyPress);
+    return () => document.removeEventListener("keypress", keyPress);
+  }, [keyPress]);
+
   useEffect(() => {
     socket.emit("browse", {
       url,

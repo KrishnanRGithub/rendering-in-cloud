@@ -34,6 +34,18 @@ socketIO.on("connection", (socket) => {
     const screenshots = new PuppeteerMassScreenshots();
     await screenshots.init(page, socket);
     await screenshots.start();
+
+    socket.on("keyPressed", async ({ key }) => {
+      console.log("Key Pressed lol", key);
+      try {
+        t = await page.keyboard.press(key);
+        // console.log(t);
+        // await page.keyboard.press("K");
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
     socket.on("mouseMove", async ({ x, y }) => {
       try {
         await page.mouse.move(x, y);
