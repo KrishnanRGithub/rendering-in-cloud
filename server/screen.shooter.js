@@ -52,10 +52,11 @@ class PuppeteerMassScreenshots {
   }
 
   async writeImageFilename(data) {
-    // @ts-ignore
     var buf = Buffer.from(data, "base64"); // Ta-da
-    i++;
-    if (i % 200 == 0) sharp(buf).toFile("output.webp");
+    data = await sharp(buf).webp({ nearLossless: true }).toBuffer();
+    data = Buffer.from(data, "binary").toString("base64");
+
+    // data = sharp(buf).webp({ lossless: true }).toBuffer("output.webp");
     const fullHeight = await this.page.evaluate(() => {
       return Math.max(
         document.body.scrollHeight,

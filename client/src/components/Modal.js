@@ -26,7 +26,9 @@ const Modal = ({ url }) => {
     });
 
     socket.on("image", ({ img, fullHeight }) => {
-      setImage("data:image/jpeg;base64," + img);
+      // img = Buffer.from(img, "binary").toString("base64");
+      // console.log(img);
+      setImage("data:image/webp;base64," + img);
       setFullHeight(fullHeight);
     });
 
