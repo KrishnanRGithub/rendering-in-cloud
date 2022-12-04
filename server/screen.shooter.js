@@ -10,7 +10,7 @@ i = 0;
 
 const emptyFunction = async () => {};
 const defaultAfterWritingNewFile = async (filename) =>
-  console.log(`${filename} was written`);
+  console.log(`${i++} was written`);
 
 class PuppeteerMassScreenshots {
   async init(page, socket, options = {}) {
@@ -52,9 +52,9 @@ class PuppeteerMassScreenshots {
   }
 
   async writeImageFilename(data) {
-    var buf = Buffer.from(data, "base64"); // Ta-da
-    data = await sharp(buf).webp({ nearLossless: true }).toBuffer();
-    data = Buffer.from(data, "binary").toString("base64");
+    // var buf = Buffer.from(data, "base64"); // Ta-da
+    // data = sharp(buf).webp({ nearLossless: true }).toBuffer();
+    // data = Buffer.from(data, "binary").toString("base64");
 
     // data = sharp(buf).webp({ lossless: true }).toBuffer("output.webp");
     const fullHeight = await this.page.evaluate(() => {
@@ -72,8 +72,8 @@ class PuppeteerMassScreenshots {
 
   async start(options = {}) {
     const startOptions = {
-      format: "png",
-      quality: 100,
+      format: "webp",
+      quality: 60,
       everyNthFrame: 1,
       ...options,
     };

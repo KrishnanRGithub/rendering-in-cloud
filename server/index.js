@@ -26,6 +26,7 @@ socketIO.on("connection", (socket) => {
     });
     const context = await browser.createIncognitoBrowserContext();
     const page = await context.newPage();
+    await page.setDefaultNavigationTimeout(0);
     await page.setViewport({
       width: 1920,
       height: 1080,
