@@ -36,18 +36,16 @@ socketIO.on("connection", (socket) => {
     await screenshots.init(page, socket);
     await screenshots.start();
 
-    socket.on("keyPressed", async ({ key }) => {
-      console.log("Key Pressed lol", key);
+    onKeyPressInBrowser = async ({ key }) => {
+      console.log("Key Pressed", key);
       try {
         t = await page.keyboard.press(key);
-        // console.log(t);
-        // await page.keyboard.press("K");
       } catch (err) {
         console.log(err);
       }
-    });
+    };
 
-    socket.on("mouseMove", async ({ x, y }) => {
+    onMouseMoveInBrowser = async ({ x, y }) => {
       try {
         await page.mouse.move(x, y);
         const cur = await page.evaluate(
@@ -62,19 +60,25 @@ socketIO.on("connection", (socket) => {
 
         socket.emit("cursor", cur);
       } catch (err) {}
-    });
+    };
 
-    socket.on("mouseClick", async ({ x, y }) => {
+    onMouseClickInBrowser = async ({ x, y }) => {
       try {
         await page.mouse.click(x, y);
       } catch (err) {}
-    });
+    };
 
-    socket.on("scroll", ({ position }) => {
-      page.evaluate((top) => {
-        window.scrollTo({ top });
-      }, position);
-    });
+    socket.on("keyPressed", onKeyPressInBrowser);
+
+    socket.on("mouseMove", onMouseMoveInBrowser);
+
+    socket.on("mouseClick", onMouseClickInBrowser);
+
+    // socket.on("scroll", ({ position }) => {
+    //   page.evaluate((top) => {
+    //     window.scrollTo({ top });
+    //   }, position);
+    // });
   });
 
   socket.on("disconnect", () => {

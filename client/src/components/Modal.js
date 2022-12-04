@@ -60,13 +60,6 @@ const Modal = ({ url }) => {
     });
   }, []);
 
-  const mouseScroll = useCallback((event) => {
-    const position = event.currentTarget.scrollTop;
-    socket.emit("scroll", {
-      position,
-    });
-  }, []);
-
   return (
     <div className="popup" onScroll={mouseScroll}>
       <div
