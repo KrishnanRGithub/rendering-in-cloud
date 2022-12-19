@@ -70,7 +70,7 @@ const Modal = ({ url }) => {
   }, []);
 
   return (
-    <div className="popup" onScroll={mouseScroll}>
+    // <div className="popup" onScroll={mouseScroll}>
       <div
         ref={ref}
         className="popup-ref"
@@ -80,7 +80,7 @@ const Modal = ({ url }) => {
           <img src={image} onMouseMove={mouseMove} onClick={mouseClick} />
         )}
       </div>
-    </div>
+    // </div>
   );
 };
 
