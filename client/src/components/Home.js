@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
 import Modal from "./Modal";
-
+const VRAPP_URL="https://google.com"
 const Home = () => {
   console.log("aaaa");
-  const [url, setURL] = useState("");
-  const [show, setShow] = useState(false);
+  const [url, setURL] = useState(VRAPP_URL);
+  const [show, setShow] = useState(true);
   const handleCreateChannel = useCallback(() => {
     setShow(true);
   }, []);

@@ -2,9 +2,6 @@ const { join } = require("path");
 
 const fs = require("fs").promises;
 
-const sharp = require("sharp");
-
-const imageProcessing = sharp();
 
 i = 0;
 

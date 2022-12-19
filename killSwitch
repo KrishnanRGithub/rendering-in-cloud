@@ -1,0 +1,9 @@
+For Linux/Mac OS search (sudo) run this in the terminal:
+
+$ lsof -i tcp:3000
+$ kill -9 PID
+
+On Windows:
+
+netstat -ano | findstr :4000
+tskill typeyourPIDhere 
