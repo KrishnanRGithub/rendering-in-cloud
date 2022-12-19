@@ -5,9 +5,10 @@ const http = require("http").Server(app);
 const puppeteer = require("puppeteer");
 const PuppeteerMassScreenshots = require("./screen.shooter");
 const PORT = 4000;
+const CLIENT_URL="http://localhost:3000"
 const socketIO = require("socket.io")(http, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
   },
 });
 

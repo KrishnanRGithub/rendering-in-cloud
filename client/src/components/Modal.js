@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import socketIO from "socket.io-client";
-const socket = socketIO.connect("http://localhost:4000");
+
+const SERVER_URL="http://localhost:4000"
+const socket = socketIO.connect(SERVER_URL);
 
 const Modal = ({ url }) => {
   const ref = useRef(null);

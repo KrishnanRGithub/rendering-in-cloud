@@ -10,7 +10,7 @@ i = 0;
 
 const emptyFunction = async () => {};
 const defaultAfterWritingNewFile = async (filename) =>
-  console.log(`${i++} was written`);
+  console.log(`image emitted !!`);
 
 class PuppeteerMassScreenshots {
   async init(page, socket, options = {}) {
