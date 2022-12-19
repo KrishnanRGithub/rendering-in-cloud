@@ -8,6 +8,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-height: 100vh;
+  overflow-y: 0;
 }
 * {
   font-family: "Space Grotesk", sans-serif;
