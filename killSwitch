@@ -6,4 +6,5 @@ $ kill -9 PID
 On Windows:
 
 netstat -ano | findstr :4000
-tskill typeyourPIDhere 
+kill PID
+ 

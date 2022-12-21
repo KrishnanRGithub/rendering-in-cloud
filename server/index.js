@@ -8,6 +8,7 @@ const PORT = 4000;
 const CLIENT_URL="http://localhost:3000"
 const socketIO = require("socket.io")(http, {
   cors: {
+    
     origin: CLIENT_URL,
   },
 });
