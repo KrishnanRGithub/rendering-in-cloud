@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Modal from "./Modal";
-const VRAPP_URL="https://vr-fyp.pages.dev/"
+const VRAPP_URL="http://127.0.0.1:5500/index.html"
 const Home = () => {
   console.log("Launching the UI thing");
   const url = VRAPP_URL;

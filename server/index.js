@@ -15,10 +15,11 @@ const socketIO = require("socket.io")(http, {
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+let state="Null"
 let channelList = [];
-
 socketIO.on("connection", (socket) => {
+  state = "CONNECTED"
+  
   console.log(`⚡: ${socket.id} user just connected!`);
 
   socket.on("browse", async ({ url }) => {
@@ -80,6 +81,7 @@ socketIO.on("connection", (socket) => {
 
   socket.on("disconnect", () => {
     socket.disconnect();
+    state = "DISCONNECTED"
     console.log("🔥: A user disconnected");
   });
 });

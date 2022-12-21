@@ -3,7 +3,7 @@ const { join } = require("path");
 const fs = require("fs").promises;
 
 
-i = 0;
+i = 2;
 
 const emptyFunction = async () => {};
 const defaultAfterWritingNewFile = async (filename) =>

@@ -38,36 +38,36 @@ const Modal = ({ url }) => {
     });
   }, []);
 
-  const mouseMove = useCallback((event) => {
-    const position = event.currentTarget.getBoundingClientRect();
-    const widthChange = 1920 / position.width;
-    const heightChange = 1080 / position.height;
-    socket.emit("mouseMove", {
-      x: widthChange * (event.pageX - position.left),
-      y:
-        heightChange *
-        (event.pageY - position.top - document.documentElement.scrollTop),
-    });
-  }, []);
+  // const mouseMove = useCallback((event) => {
+  //   const position = event.currentTarget.getBoundingClientRect();
+  //   const widthChange = 1920 / position.width;
+  //   const heightChange = 1080 / position.height;
+  //   socket.emit("mouseMove", {
+  //     x: widthChange * (event.pageX - position.left),
+  //     y:
+  //       heightChange *
+  //       (event.pageY - position.top - document.documentElement.scrollTop),
+  //   });
+  // }, []);
 
-  const mouseClick = useCallback((event) => {
-    const position = event.currentTarget.getBoundingClientRect();
-    const widthChange = 1920 / position.width;
-    const heightChange = 1080 / position.height;
-    socket.emit("mouseClick", {
-      x: widthChange * (event.pageX - position.left),
-      y:
-        heightChange *
-        (event.pageY - position.top - document.documentElement.scrollTop),
-    });
-  }, []);
+  // const mouseClick = useCallback((event) => {
+  //   const position = event.currentTarget.getBoundingClientRect();
+  //   const widthChange = 1920 / position.width;
+  //   const heightChange = 1080 / position.height;
+  //   socket.emit("mouseClick", {
+  //     x: widthChange * (event.pageX - position.left),
+  //     y:
+  //       heightChange *
+  //       (event.pageY - position.top - document.documentElement.scrollTop),
+  //   });
+  // }, []);
 
-  const mouseScroll = useCallback((event) => {
-    const position = event.currentTarget.scrollTop;
-    socket.emit("scroll", {
-      position,
-    });
-  }, []);
+  // const mouseScroll = useCallback((event) => {
+  //   const position = event.currentTarget.scrollTop;
+  //   socket.emit("scroll", {
+  //     position,
+  //   });
+  // }, []);
 
   return (
     // <div className="popup" onScroll={mouseScroll}>
@@ -76,8 +76,9 @@ const Modal = ({ url }) => {
         className="popup-ref"
         style={{ cursor, height: fullHeight }}
       >
-        {image && (
-          <img src={image} onMouseMove={mouseMove} onClick={mouseClick} />
+      {image && (
+        // onMouseMove={mouseMove} onClick={mouseClick} 
+          <img src={image} />
         )}
       </div>
     // </div>
